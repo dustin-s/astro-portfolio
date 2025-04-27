@@ -16,6 +16,11 @@ const { title, description, permalink, current } = Astro.props;
   <BaseHead title={title} description={description} permalink={permalink} />
 </head>
 <body>
+  <video autoplay loop class="background-video" 
+    id="backgroundVideo"
+    data-light-src="/assets/vector-background-light.mp4"
+    data-dark-src="/assets/vector-background.mp4">
+  </video>
   <div class="layout">
     <Header current={current} />
 

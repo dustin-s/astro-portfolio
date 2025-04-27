@@ -12,6 +12,16 @@
   function handleChange(event) {
     theme = event.target.value;
     localStorage.setItem('theme', theme);
+    swapVideo(theme);
+  }
+
+  function swapVideo(theme) {
+    if(typeof document !== 'undefined') {
+      let videoEl = document.getElementById("backgroundVideo");
+      if(!videoEl) return;
+      let vidSrc = videoEl.getAttribute(`data-${theme}-src`);
+      videoEl.src = vidSrc;
+    }
   }
 
   $: if (rootEl && theme === 'light') {
@@ -19,6 +29,11 @@
   } else if (rootEl && theme === 'dark') {
     rootEl.classList.add('theme-dark');
   }
+
+  setTimeout(() => {
+    // Ensure video starts _after_ the page loads.
+    swapVideo(theme);
+  },500);
 
   const icons = [
     `<svg
