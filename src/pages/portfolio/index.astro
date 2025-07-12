@@ -22,6 +22,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new 
             <h2>
               <a href={href}>{post.data.title}</a>
             </h2>
+            <img src={post.data.image.url} alt={post.data.image.alt} />
             <p>{post.data.description}</p>
             <div class="post-item-footer">
               <span class="post-item-date">— {post.data.publishDate}</span>
